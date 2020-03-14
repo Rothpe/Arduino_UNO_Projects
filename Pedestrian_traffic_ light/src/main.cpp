@@ -20,30 +20,30 @@ void loop() {
   digitalWrite(trafficGreenPin, HIGH);
   digitalWrite(PedRedPin, HIGH);
   digitalWrite(PedGreenPin, LOW);
-  delay(20000);
+  delay(30000);
 
   //Pedestrian  red
   digitalWrite(PedRedPin, HIGH);
   digitalWrite(PedGreenPin, LOW);
-  delay(2000);
+  delay(3000);
   // Car yellow
   digitalWrite(trafficRedPin, LOW);
   digitalWrite(trafficYellowPin, HIGH);
   digitalWrite(trafficGreenPin, LOW);
-  delay(2000);
+  delay(3000);
   // Car red
   digitalWrite(trafficRedPin, HIGH);
   digitalWrite(trafficYellowPin, LOW);
   digitalWrite(trafficGreenPin, LOW);
-  delay(2000);
+  delay(3000);
   //Pedestrian green
   digitalWrite(PedRedPin, LOW);
   digitalWrite(PedGreenPin, HIGH);
-  delay(20000);
+  delay(30000);
   //Pedestrian red
   digitalWrite(PedRedPin, HIGH);
   digitalWrite(PedGreenPin, LOW);
-  delay(2000);
+  delay(3000);
   // Car red - yellow
   digitalWrite(trafficRedPin, HIGH);
   digitalWrite(trafficYellowPin, HIGH);
