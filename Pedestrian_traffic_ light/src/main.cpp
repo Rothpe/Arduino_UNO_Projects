@@ -20,7 +20,7 @@ void loop() {
   digitalWrite(ampelGruenPin, HIGH);
   digitalWrite(fgRotPin, HIGH);
   digitalWrite(fgGruenPin, LOW);
-  delay(10000);
+  delay(20000);
   // gelb
   digitalWrite(ampelRotPin, LOW);
   digitalWrite(ampelGelbPin, HIGH);
@@ -34,7 +34,7 @@ void loop() {
   digitalWrite(ampelGruenPin, LOW);
   digitalWrite(fgRotPin, LOW);
   digitalWrite(fgGruenPin, HIGH);
-  delay(10000);
+  delay(20000);
   // rot-gelb
   digitalWrite(ampelRotPin, HIGH);
   digitalWrite(ampelGelbPin, HIGH);
