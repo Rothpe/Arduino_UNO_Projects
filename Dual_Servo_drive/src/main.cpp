@@ -1,11 +1,8 @@
  #include <Arduino.h>
- #include <Servo.h> //Die Servobibliothek wird aufgerufen. Sie wird benötigt, damit die Ansteuerung des Servos vereinfacht wird.
- 
+ #include <Servo.h>  
 
 Servo servolinks;
-Servo servorechts;
-
- 
+Servo servorechts; 
 
 void setup()
 
@@ -16,9 +13,7 @@ servorechts.attach(9);
 servolinks.write(0);
 servorechts.write(180);
 
-}
-
- 
+} 
 
 void loop() {
 
@@ -49,19 +44,4 @@ void loop() {
   }
   delay(3000);
   
-  
-
-
-
-
-/*servolinks.write(0); //Position 1 ansteuern mit dem Winkel 0°
-servorechts.write(180);
-
-delay(10000); //Das Programm stoppt für 3 Sekunden
-
-servolinks.write(90); //Position 2 ansteuern mit dem Winkel 90°
-servorechts.write(90);
-
-delay(10000); //Das Programm stoppt für 3 Sekunden*/
-
 }
