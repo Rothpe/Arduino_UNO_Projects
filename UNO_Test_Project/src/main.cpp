@@ -1,15 +1,34 @@
  #include <Arduino.h>
- 
- void setup(){
-  pinMode(8, OUTPUT);
-  pinMode(9, OUTPUT);
-}
+ #include <Servo.h>  
 
-void loop(){
-  digitalWrite(8, HIGH);
-  digitalWrite(9, LOW);
-  delay(1000);
-  digitalWrite(8, LOW);
-  digitalWrite(9, HIGH);
-  delay(1000);
+Servo servo;
+
+void setup()
+
+{
+
+servo.attach(8);
+servo.write(90);
+
+} 
+
+void loop() {
+
+  delay(20000);
+
+  for (int i = 0; i < 90; i++)
+  {
+    servo.write(i);
+    //delay(4);
+  }
+  delay(3000);
+
+
+  for (int i = 90; i > 0; i--)
+  {
+    servo.write(i);
+    //delay(4);
+  }
+  delay(3000);
+  
 }
