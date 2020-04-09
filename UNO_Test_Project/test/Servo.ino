@@ -8,7 +8,7 @@ void setup()
 {
 servo.attach(8); //Declaration servo to Pin 8 
 servo.write(0); //first Startposoition 0°
-} 
+}
 
 void loop() {
 
