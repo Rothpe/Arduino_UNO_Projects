@@ -13,12 +13,15 @@ void setup() {
 void loop(){
   for(h=hours;h<24;h++)   //Hours
   {Serial.println(h);
-  }
     for(m=minutes;m<60;m++)   //Minutes
     {Serial.println(m);
-    }
       for(s=seconds;s<60;s++)     //Seconds
       {Serial.println(s);
-      delay(200);
+      delay(1000);
       }
+
+    }
+    
+  }
+  
 }
