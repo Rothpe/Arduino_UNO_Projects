@@ -11,13 +11,12 @@ void setup() {
 }
 
 void loop(){
-  for(h=hours;h<24;h++)   //Hours
-  {
-   
-    for(m=minutes;m<60;m++)   //Minutes
-    {    
-      for(s=seconds;s<60;s++)     //Seconds
-      {Serial.print(h);
+  for(h=hours;h<24;h++){   //Hours
+     
+    for(m=minutes;m<60;m++){   //Minutes
+        
+      for(s=seconds;s<60;s++){     //Seconds
+      Serial.print(h);
       Serial.print(":");
       Serial.print(m);
       Serial.print(":");
