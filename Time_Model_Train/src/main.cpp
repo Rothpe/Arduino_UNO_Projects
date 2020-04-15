@@ -5,7 +5,6 @@ int h,m,s;
 int set_hours=20;
 int set_minutes=49;
 int set_seconds=45;
-int secs=1000;
 
 void setup() {
   Serial.begin(115200);
@@ -18,8 +17,8 @@ void loop(){
     {
       for(s=set_seconds;s<60;s++)     //Seconds
       {
-        Serial.println(m);
-        delay(secs-(millis()%1000));
+        Serial.println(h);
+        delay(1000);
       }
       set_seconds=00;
     }
