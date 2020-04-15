@@ -1,4 +1,3 @@
-#include <Arduino.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 #include <SPI.h>
@@ -18,31 +17,39 @@ int seconds=00;
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 
 void setup() {
-  Serial.begin(115200);
+Serial.begin(115200);
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
 
     display.clearDisplay();
     display.display();
     display.setTextColor(WHITE);
-    display.setCursor(0, 5);
+    display.setTextSize(1);
 }
 
 void loop(){
   for(h=hours;h<24;h++){   //Hours
-     
+
     for(m=minutes;m<60;m++){   //Minutes
-        
+
       for(s=seconds;s<60;s++){     //Seconds
+        display.setCursor(0, 5);
+        display.print(h);
+        display.setCursor(20, 5);
+        display.print(m);        
+        display.setCursor(40, 5);
+        display.print(s);
+        display.display();
+        delay(1000);
+        
       /*Serial.print(h);
       Serial.print(":");
       Serial.print(m);
       Serial.print(":");
       Serial.print(s);
       Serial.println();*/
-      display.printf("%02d:%02:%02d", h, m, s);
-      
       }
-      delay(100);
+    
+      
       seconds = 00;
     }
     minutes = 00;    
