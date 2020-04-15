@@ -1,13 +1,29 @@
 #include <Arduino.h>
-#include <time.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+#include <SPI.h>
+#include <Wire.h>
+
+// OLED display TWI address
+#define OLED_ADDR 0x3C
+
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 32
 
 int h,m,s;
 int hours=23;
 int minutes=58;
 int seconds=00;
 
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
+
 void setup() {
   Serial.begin(115200);
+
+    display.clearDisplay();
+    display.display();
+    display.setTextColor(WHITE);
+    display.setCursor(0, 5);
 }
 
 void loop(){
@@ -16,14 +32,16 @@ void loop(){
     for(m=minutes;m<60;m++){   //Minutes
         
       for(s=seconds;s<60;s++){     //Seconds
-      Serial.print(h);
+      /*Serial.print(h);
       Serial.print(":");
       Serial.print(m);
       Serial.print(":");
       Serial.print(s);
-      Serial.println();
-      delay(100);
+      Serial.println();*/
+      display.printf("%02d:%02:%02d", h, m, s);
+      
       }
+      delay(100);
       seconds = 00;
     }
     minutes = 00;    
