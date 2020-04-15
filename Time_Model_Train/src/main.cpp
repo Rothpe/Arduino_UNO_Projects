@@ -52,7 +52,6 @@ void loop(){
       }
       display.clearDisplay();
       display.display();
-      delay(6000);
       seconds = 00;
     }
     minutes = 00;    
