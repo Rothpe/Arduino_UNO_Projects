@@ -2,8 +2,8 @@
 #include <time.h>
 
 int h,m,s;
-int hours=17;
-int minutes=00;
+int hours=23;
+int minutes=58;
 int seconds=00;
 
 void setup() {
@@ -22,11 +22,11 @@ void loop(){
       Serial.print(":");
       Serial.print(s);
       Serial.println();
-      delay(1000);
+      delay(100);
       }
-
+      seconds = 00;
     }
-    
+    minutes = 00;    
   }
-  
+  hours = 00;  
 }
