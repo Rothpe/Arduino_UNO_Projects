@@ -2,9 +2,9 @@
 #include <time.h>
 
 int h,m,s;
-int hours=20;
-int minutes=49;
-int seconds=45;
+int hours=17;
+int minutes=00;
+int seconds=00;
 
 void setup() {
   Serial.begin(115200);
