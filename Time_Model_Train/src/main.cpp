@@ -23,33 +23,36 @@ Serial.begin(115200);
     display.clearDisplay();
     display.display();
     display.setTextColor(WHITE);
-    display.setTextSize(1);
+    display.setTextSize(2);
 }
 
 void loop(){
+
   for(h=hours;h<24;h++){   //Hours
 
     for(m=minutes;m<60;m++){   //Minutes
 
       for(s=seconds;s<60;s++){     //Seconds
-        display.setCursor(0, 5);
+        display.setCursor(5 , 5);
         display.print(h);
-        display.setCursor(20, 5);
-        display.print(m);        
-        display.setCursor(40, 5);
-        display.print(s);
+        display.setCursor(30 , 5);
+        display.print(":");
+        display.setCursor(40 , 5);
+        display.print(m);
         display.display();
-        delay(1000);
         
-      /*Serial.print(h);
+      Serial.print(h);
       Serial.print(":");
       Serial.print(m);
       Serial.print(":");
       Serial.print(s);
-      Serial.println();*/
+      Serial.println();
+
+      delay(100);
       }
-    
-      
+      display.clearDisplay();
+      display.display();
+      delay(6000);
       seconds = 00;
     }
     minutes = 00;    
