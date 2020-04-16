@@ -36,10 +36,9 @@ void loop(){
     for(m=minutes;m<60;m++){   //Minutes
 
       for(s=seconds;s<60;s++){     //Seconds
-        display.clearDisplay();
         display.setCursor(5 , 5);
         char timestring[6];     //timestring for formatted output to display
-        sprintf(timestring, "%02d:%02d:%02d ", h, m, s);
+        sprintf(timestring, "%02d:%02d ", h, m);
         display.print(timestring);
         display.display();
 
@@ -54,8 +53,8 @@ void loop(){
 
       delay(100); //delay for time lapse
       }
-      //display.clearDisplay(); //clear display after 60 sec
-      //display.display();
+      display.clearDisplay(); //clear display after 60 sec
+      display.display();
       seconds = 00;
     }
     minutes = 00;    
