@@ -2,6 +2,7 @@
 #include <Adafruit_SSD1306.h>
 #include <SPI.h>
 #include <Wire.h>
+#include "RF24.h"
 
 // OLED display TWI address
 #define OLED_ADDR 0x3C
@@ -34,19 +35,25 @@ void loop(){
 
       for(s=seconds;s<60;s++){     //Seconds
         display.setCursor(5 , 5);
-        display.print(h);
+        /*display.print(h);
         display.setCursor(30 , 5);
         display.print(":");
         display.setCursor(40 , 5);
         display.print(m);
+        display.display();*/
+      
+        char timestring[6];
+        sprintf(timestring, "%02d:%02d ", h, m);
+        display.print(timestring);
         display.display();
-        
-      Serial.print(h);
+
+
+      /*Serial.print(h);
       Serial.print(":");
       Serial.print(m);
       Serial.print(":");
       Serial.print(s);
-      Serial.println();
+      Serial.println();*/
 
       delay(100);
       }
