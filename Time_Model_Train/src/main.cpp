@@ -10,7 +10,9 @@
 #define SCREEN_HEIGHT 32
 
 int h,m,s;
-int hours=23;
+
+//set time for start
+int hours=23; 
 int minutes=58;
 int seconds=00;
 
