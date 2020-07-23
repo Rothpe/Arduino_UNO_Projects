@@ -18,7 +18,7 @@ servo_right.write(180);
 void loop() {
 
   delay(20000);
-a
+
   for (int i = 0; i < 90; i++)
   {
     servo_left.write(i);

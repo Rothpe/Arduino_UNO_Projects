@@ -85,7 +85,8 @@ void setup()
     display.begin();
     // Settings for Display
 
-    display.setRotation(1);
+  
+
     display.fillScreen(BLACK);
     delay(1000);
     display.setTextColor(WHITE);
