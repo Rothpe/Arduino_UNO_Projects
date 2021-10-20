@@ -42,11 +42,11 @@ void Servo2_Rechts(){
 
 void setup() {
   Serial.begin(9600);
-  pinMode(taster, INPUT_PULLUP); // Gibt an dass Buttom ein Input ist
+  pinMode(taster, INPUT_PULLUP); // Gibt an dass die Taster ein Input ist
   pinMode (taster2,INPUT_PULLUP);
-  servo.attach(8); // gibt an auf welchem Pin der Servo mit dem steuerkabel anliegt
+  servo.attach(8); // gibt an auf welchem Pin die Servo mit dem Steuerkabel anliegen
   servo2.attach(9);
-  servo.write(80); // gibt die Grundstellung des Servo beim start an
+  servo.write(80); // gibt die Grundstellung der Servo beim Start an
   servo2.write(80);
 }
 
