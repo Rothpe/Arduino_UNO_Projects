@@ -1,48 +1,88 @@
-#include <Arduino.h>
-#include <Servo.h> // zugriff auf Servo Bibliothek
+#include<Arduino.h>
+#include <Servo.h> // Zugriff auf Servo Bibliothek
 
-const int taster = 12; // Pushbutton Pin auf dem Board (12)
-int tasterstatus=0;
+const int taster = 2; // Pushbutton Pin auf dem Board (2)
+const int taster2 = 3;// Pushbutton Pin auf dem Board (3)
+int tasterstatus=0;//Tasterstatus Taster
+int taster2status=0;//Tasterstatus Taster2
 Servo servo; // deklariert den Namen des ersten Servos
+Servo servo2;// deklariert den Namen des zweiten Servos
 
-//Funktion für Links-Abzweig
-void Links(){
-      for (int j = 170; j > 0; j--){
-      servo.write(j);
-      delay(20);
-      }
+//Funktion für Links-Abzweig Servo
+void Servo_Links(){
+  for (int j = 120; j > 80; j--){
+    servo.write(j);
+    delay(40);
+  }
 }
 
-//Funktion für Rechts-Abzweig
-void Rechts(){
-      for (int j = 0; j < 170; j++){
-      servo.write(j);
-      delay(20);
-      }
+//Funktion für Rechts-Abzweig Servo
+void Servo_Rechts(){
+  for (int j = 80; j < 120; j++){
+    servo.write(j);
+    delay(40);
+  }
+}
+
+//Funktion für Links-Abzweig Servo2
+void Servo2_Links(){
+  for (int j = 120; j > 80; j--){
+    servo2.write(j);
+    delay(40);
+  }
+}
+
+//Funktion für Rechts-Abzweig Servo2
+void Servo2_Rechts(){
+  for (int j = 80; j < 120; j++){
+    servo2.write(j);
+    delay(40);
+  }
 }
 
 void setup() {
   Serial.begin(9600);
-  pinMode(taster, INPUT_PULLUP); // Gibt an dass Buttom ein Input ist - DAS IST GEÄNDERT
-  servo.attach(13); // gibt an auf welchem Pin der Servo mit dem steuerkabel anliegt
-  servo.write(0); // gibt die Grundstellung des Servo beim start an
+  pinMode(taster, INPUT_PULLUP); // Gibt an dass Buttom ein Input ist
+  pinMode (taster2,INPUT_PULLUP);
+  servo.attach(8); // gibt an auf welchem Pin der Servo mit dem steuerkabel anliegt
+  servo2.attach(9);
+  servo.write(80); // gibt die Grundstellung des Servo beim start an
+  servo2.write(80);
 }
 
 //Definition state maschine
-enum TextState { RECHTS, LINKS } nextTextState = RECHTS;
+enum TasterState { RECHTS, LINKS } nextTasterState = RECHTS;
+enum Taster1State { RECHTS2, LINKS2 } nextTaster1State = RECHTS2;
 
 void loop(){
+
+  //State machine Servo
   tasterstatus=digitalRead(taster);
   if (tasterstatus == HIGH) {
-    switch (nextTextState) {
+    switch (nextTasterState) {
       case RECHTS:
-      Rechts();
-      nextTextState = LINKS;
+      Servo_Rechts();
+      nextTasterState = LINKS;
       break;
       case LINKS:
-      Links();
-      nextTextState = RECHTS;
+      Servo_Links();
+      nextTasterState = RECHTS;
       break;
     }
   }
+
+  //State machine Servo2
+  taster2status=digitalRead(taster2);
+  if (taster2status == HIGH) {
+    switch (nextTaster1State) {
+      case RECHTS:
+      Servo2_Rechts();
+      nextTaster1State = LINKS2;
+      break;
+      case LINKS:
+      Servo2_Links();
+      nextTaster1State = RECHTS2;
+      break;
+    }
+  }  
 }
